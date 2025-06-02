@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pengumuman Kelulusan SD Negeri 88 Ambon</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: #fff;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 10px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+    }
+    .not-found {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pengumuman Kelulusan</h1>
+    <h2>SD Negeri 88 Ambon</h2>
+    <p>Tahun Pelajaran 2024/2025</p>
+
+    <input type="text" id="nisnInput" placeholder="Masukkan NISN Anda">
+    <br>
+    <button onclick="cekKelulusan()">Cek Kelulusan</button>
+
+    <div id="hasil" class="result"></div>
+  </div>
+
+  <script>
+    const dataSiswa = {
+      "3135863440": "ABHY PUTRA MIRZAN",
+      "3133999095": "AFRIANI",
+      "3131583304": "AINUN SARTILA TUAHUNS",
+      "3137701503": "AL DINO",
+      "3119956631": "APRIL",
+      "3128888736": "AYRIN JASIN",
+      "3136878911": "AZIRAH PUTRI SULAIMAN",
+      "0111755411": "CHANTIQA RAMADHANI SAMAUNA",
+      "3121538619": "ENJA MAGRIAN ISTIAN ISMAN",
+      "3135146254": "FATIMA AZ ZAHRA TAMRIN",
+      "3134647518": "FATIN SAHIRA  PEUUMA",
+      "3128295516": "FAUZIA RAHMAWATI",
+      "3137974611": "FIRDAUS TOKOMADORAN",
+      "3127564971": "FIZAH",
+      "0111598478": "HILMAN BARANYANAN",
+      "3139538550": "HULA SEPTIANI",
+      "3139555997": "JIDAN AHMAD WAGIMAN",
+      "3129060440": "KARMILA",
+      "3137158531": "KHAILA ALIFAH ATHAYA METEKOHY",
+      "3126275491": "KHAYLA SABRINA",
+      "0139533279": "LISNAWATI",
+      "3138761010": "MUH. ALZAM",
+      "3132336608": "MUHAMMAD  ILFAN ZAID",
+      "3129581596": "MUHAMMAD FAUZAN AWAD",
+      "3129230545": "MUHAMMAD GUNTUR",
+      "3132624672": "MUHAMMAD HAIKAL PATJINA",
+      "3124172016": "MUHAMMAD NURHADI KOLOWA",
+      "3139813499": "NABILA SALSABILA LATUCONSINA",
+      "3115105903": "NAJWA WUSURWUT",
+      "3124769490": "NANA NERAHUA",
+      "0139926118": "NAUFAL DWI ALFARAZEL",
+      "3137046903": "NAURA NADYA SALSABILA AREP",
+      "0134673950": "NUR AFIANI",
+      "3133556116": "NUR AKILA",
+      "3126497993": "NUR RAIHAN USEMAHU",
+      "3131206294": "NURLIA",
+      "3133386733": "NURLITA AFIFAH ROSYIDAH",
+      "0127350977": "ODE ARAFAH SOPRIN",
+      "3138943883": "PUTRI PATJINA",
+      "3138158478": "RAHMAD RAMADHAN LANSOROY",
+      "3128804791": "RANDRA FAHRI AFFARIS",
+      "0122132256": "RINDU TRI OKTOPIA WAILUSSY",
+      "0133855908": "SAILLA AZAHRA",
+      "3137538821": "SHAREN LAHMADY",
+      "3137654460": "SYIREN ZERA TITAPUTTY"
+    };
+
+    function cekKelulusan() {
+      const nisn = document.getElementById('nisnInput').value.trim();
+      const hasil = document.getElementById('hasil');
+
+      if (dataSiswa[nisn]) {
+        hasil.innerHTML = `Nama: <strong>${dataSiswa[nisn]}</strong><br>Status: <span style="color:green">LULUS</span>`;
+        hasil.classList.remove("not-found");
+      } else {
+        hasil.innerHTML = "NISN tidak ditemukan. Silakan periksa kembali.";
+        hasil.classList.add("not-found");
+      }
+    }
+  </script>
+</body>
+</html>
